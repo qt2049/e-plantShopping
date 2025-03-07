@@ -47,6 +47,7 @@ body {
     align-items: center;
     justify-content: center;
 }
+
 .product-list {
     display: flex;
     flex-wrap: wrap;
@@ -93,8 +94,9 @@ body {
 }
 
 .product-image {
-    max-width: 100%;
+    max-width: auto;
     height: 200px; /* Adjust height for better consistency */
+    object-fit: contain;
 }
 
 .product-button {
@@ -179,14 +181,14 @@ body {
     /* background-color: yellow; */
 }
 .plant_heading{
-    width: 400px;
-    text-align: center;
+    /*width: 400px;*/
+    width: fit-content;
+    /*text-align: center;*/
+    /*align-items: center;*/
     margin: 20px;
     border: 1px solid rgb(5, 4, 4);
     border-left: none;
     border-right: none;
-
-    
 }
 /* Add Media Query for responsiveness */
 @media (max-width: 768px) {

@@ -265,7 +265,6 @@ function ProductList({ onHomeClick }) {
                             </div>
                         </a>
                     </div>
-
                 </div>
                 <div style={styleObjUl}>
                     <div> <a href="#" onClick={(e) => handlePlantsClick(e)} style={styleA}>Plants</a></div>
@@ -276,20 +275,24 @@ function ProductList({ onHomeClick }) {
                 <div className="product-grid">
                     {
                         plantsArray.map((categoryObject, categoryIndex) => (
-                            <div className="product-list">
-                                <h1>{categoryObject.category}</h1>
-                                {
-                                    categoryObject.plants.map((plant, plantIndex) => (
-                                        <div className="product-card">
-                                            <div className="product-title">{plant.name}</div>
-                                            <div className="product-image">
-                                                <img src={plant.image} alt={plant.name} />
+                            <div>
+                                <div className="plantname_heading">
+                                    <h1 className="plant_heading">{categoryObject.category}</h1>
+                                </div>
+                                <div className="product-list">
+                                    {
+                                        categoryObject.plants.map((plant, plantIndex) => (
+                                            <div className="product-card">
+                                                <div className="product-title">{plant.name}</div>
+                                                <div>
+                                                    <img className="product-image" src={plant.image} alt={plant.name} />
+                                                </div>
+                                                <div className="product-description">{plant.description}</div>
+                                                <div className="product-cost">{plant.cost}</div>
                                             </div>
-                                            <div className="product-description">{plant.description}</div>
-                                            <div className="product-cost">{plant.cost}</div>
-                                        </div>
-                                    ))
-                                }
+                                        ))
+                                    }
+                                </div>
                             </div>
                         ))
                     }
