@@ -269,6 +269,14 @@ function ProductList({ onHomeClick }) {
          console.log("c")
     };
 
+    const handleRemoveFromCart = (product) => {
+        console.log("addedToCart: "+Object.values(addedToCart));
+        setAddedToCart((prevState) => {
+          const { [product.name]: _, ...rest } = prevState;
+          return rest;
+        });
+    };
+
     const cartItems = useSelector((state) => state.cart.items);
 
     const countAllCartItems = () => {
@@ -318,7 +326,11 @@ function ProductList({ onHomeClick }) {
                                                 <div className="product-description">{plant.description}</div>
                                                 <div/>
                                                 <div className="product-price">{plant.cost}</div>
-                                                <button className="product-button" onClick={() => handleAddToCart(plant)}>Add to Cart</button>
+                                                <button className="product-button"
+                                                  onClick={() => handleAddToCart(plant)}
+                                                  disabled={plant.name in addedToCart}
+                                                  >Add to Cart
+                                                </button>
                                             </div>
                                         ))
                                     }
@@ -328,7 +340,7 @@ function ProductList({ onHomeClick }) {
                     }
                 </div>
             ) : (
-                <CartItem onContinueShopping={handleContinueShopping} />
+                <CartItem onContinueShopping={handleContinueShopping} onRemoveFromCart={handleRemoveFromCart} />
             )}
         </div>
     );
