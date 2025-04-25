@@ -22,7 +22,7 @@ const CartItem = ({ onContinueShopping, onRemoveFromCart }) => {
   };
 
   const handleCheckoutShopping = (e) => {
-    alert('Functionality to be added for future reference');
+    alert('Coming soon!');
   };
 
   const handleIncrement = (item) => {
